@@ -32,6 +32,19 @@ Route::get('/third', function () {
     return app()->make("third_service_helper");
 });
 
+Route::get("/about", function () {
+    return view('about');
+});
+
+Route::get("/contact", function () {
+    return view('contact');
+});
+
+
+
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
