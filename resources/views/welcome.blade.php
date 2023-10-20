@@ -12,7 +12,7 @@
 
     </head>
     <body class="antialiased">
-        {{-- <div class="relative min-h-screen bg-gray-100 bg-center sm:flex sm:justify-center sm:items-center bg-dots-darker dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+        <div class="relative min-h-screen bg-gray-100 bg-center sm:flex sm:justify-center sm:items-center bg-dots-darker dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
                 <div class="z-10 p-6 text-right sm:fixed sm:top-0 sm:right-0">
                     @auth
@@ -26,11 +26,12 @@
                     @endauth
                 </div>
             @endif
-        </div> --}}
+        </div>
         <ul>
             {{-- <li><a href="{{ url("/" )}}">Home</a></li> --}}
             <li><a href="{{ url("/about")}}">About</a></li>
             <li><a href="{{ route("contact")}}">Contact</a></li>
+            <li><a href="{{ route("session.set")}}">Session</a></li>
         </ul>
     </body>
 </html>

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Contracts\Cache\LockTimeoutException;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,18 @@ Route::get("/ffffffffffff", function () {
 })->name("contact");
 
 Route::get("/country", [FirstController::class, 'index'])->middleware("country");
+
+
+Route::get(md5("/session"), function () {
+    session(['name' => 'Ashraf Uzzaman']);
+    return view("session");
+})->name("session.set");
+
+Route::get(md5("/flush"), function (Request $request) {
+    $request->session()->flush();
+
+    return redirect()->back()->with("flushed", "Session Flushed successfully!");
+})->name("session.flush");
 
 
 
