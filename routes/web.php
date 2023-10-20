@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,13 +37,13 @@ Route::get("/about", function () {
     return view('about');
 });
 
-Route::get("/contact", function () {
+Route::get("/ffffffffffff", function () {
     return view('contact');
-});
+})->name("contact");
 
-Route::get("/country", function () {
-    return view('country');
-})->middleware("country");
+Route::get("/country", [FirstController::class, 'index'])->middleware("country");
+
+
 
 
 
