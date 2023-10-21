@@ -28,10 +28,13 @@
             @endif
         </div>
         <ul>
-            {{-- <li><a href="{{ url("/" )}}">Home</a></li> --}}
             <li><a href="{{ url("/about")}}">About</a></li>
             <li><a href="{{ route("contact")}}">Contact</a></li>
             <li><a href="{{ route("session.set")}}">Session</a></li>
         </ul>
+
+        @if (Auth::check("user"))
+                <h1>User loged in</h1>
+        @endif
     </body>
 </html>
