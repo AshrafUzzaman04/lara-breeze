@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Lottery;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +66,19 @@ Route::get("/testone", function () {
     return view("errors.404");
 });
 
+Route::post("/store/contact", [ContactController::class, 'store'])->name("store.contact");
 
+Route::get("/log", function () {
+    $logFile = file(storage_path() . "/logs/contact.log");
+    $collection = [];
+    foreach ($logFile as $key => $log) {
+        $collection[] = [
+            "Line" => "$key",
+            "String" => htmlspecialchars($log)
+        ];
+    }
+    return $collection;
+});
 
 
 
