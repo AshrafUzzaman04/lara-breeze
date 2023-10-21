@@ -4,7 +4,7 @@ use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Contracts\Cache\LockTimeoutException;
+use Illuminate\Support\Lottery;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +57,14 @@ Route::get(md5("/flush"), function (Request $request) {
     return redirect()->back()->with("flushed", "Session Flushed successfully!");
 })->name("session.flush");
 
+
+Route::get("/test", function () {
+    abort(500);
+});
+
+Route::get("/testone", function () {
+    return view("errors.404");
+});
 
 
 
